@@ -1,0 +1,11 @@
+{
+    "name": "release-setup-app",
+    "version": "0.1.0",
+    "description": "",
+    "author": "",
+    "ruff": {
+        "dependencies": {
+            "ruff-mbd-v1": "*"
+        }
+    }
+}
