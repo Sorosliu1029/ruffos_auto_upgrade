@@ -174,11 +174,8 @@ function doFlashOs(cb) {
 }
 
 function doReboot(cb) {
-    var cp = spawn('reboot', [], {
+    spawn('reboot', [], {
         cwd: '/'
-    });
-    cp.on('exit', function () {
-        cb(null);
     });
 }
 
@@ -219,8 +216,10 @@ function checkOsVersion(cb) {
     console.log("current os version[" + osVersion + "], expect[" + defineVars.os_build_time + "].");
 
     if (osVersion.match(osBuildRegexp)) {
+        console.log("current os same.")
         cb(null, true);
     } else {
+        console.log("current os not same.")
         cb(null, false);
     }
 }
