@@ -71,11 +71,9 @@ var scanTimer = setInterval(() => {
               changeRuffUboot(info);
             }
           } else if (info.osVersion === '1.7.1') {
-            if (ruffList[sn].os === '1.7.1') {
+            if (ruffList[sn].os === '1.1.0') {
               if (ruffList[sn].state === OLD_DEPLOYING) {
-                changeRuffOs(info);
-              } else if (ruffList[sn].state === INIT) {
-                ruffList[sn].state = transferState(ruffList[sn].state);
+                ruffList[sn].os = info.osVersion;
                 changeRuffOs(info);
               }
             }

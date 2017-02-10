@@ -33,11 +33,12 @@ function deployApp(appVersion, ruffIP, cb) {
   var sdk = conf[appVersion].sdk;
   var cwd = conf[appVersion].app;
   var p = spawn(sdk, ['deploy', ruffIP, '-s'], {
-    cwd: cwd
+    cwd: cwd,
+    stdio: ['inherit', 'inherit', 'inherit']
   });
-  p.stdout.on('data', (chunk) => {
-    console.log(chunk.toString());
-  })
+  // p.stdout.on('data', (chunk) => {
+  //   console.log(chunk.toString());
+  // })
   p.on('exit', (exitStatus, termSignal) => {
     if (exitStatus === 0) {
       console.log(`deploy ${appVersion} to ${ruffIP} succeed.`);

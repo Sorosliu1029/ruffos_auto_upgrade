@@ -174,9 +174,7 @@ function doFlashOs(cb) {
 }
 
 function doReboot(cb) {
-    spawn('reboot', [], {
-        cwd: '/'
-    });
+    spawn('reboot');
 }
 
 function doReset(cb) {
